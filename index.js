@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const dotenv = require('dotenv')
 const exphbs = require('express-handlebars');
 const middlewareLogger = require('./middleware/logger');
 const pets = require('./pets');
