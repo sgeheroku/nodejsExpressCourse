@@ -1,7 +1,6 @@
-const express = require('express');
 const path = require('path');
-//added dotenv module
-const dotenv = require('dotenv')
+const dotenv = require('dotenv').config({ path: './config/.env' });
+const express = require('express');
 const exphbs = require('express-handlebars');
 const middlewareLogger = require('./middleware/logger');
 const pets = require('./pets');
@@ -40,7 +39,8 @@ app.use('/api/pets', require('./routes/api/pets'));
 app.use(express.static(path.join(__dirname,'public')));
 
 
-
+console.log('process.env: '+ JSON.stringify(process.env));
+console.log('process.env.PORT: '+ process.env.PORT);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, ()=>{console.log(`server started on port ${PORT}`)});
 
